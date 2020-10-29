@@ -3,7 +3,6 @@
 Run your development environment with a single command using docker-compose. 
 
 Based on the following containers:
-- dpg       (postgres:latest)
 - dnginx    (nginx:latest)
 - dphp      (php:7.4-fpm)
 
