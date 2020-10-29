@@ -3,8 +3,14 @@
 Run your development environment with a single command using docker-compose. 
 
 Based on the following containers:
-- dnginx    (nginx:latest)
 - dphp      (php:7.4-fpm)
+- dnginx    (nginx:latest)
+- mariadb   (mariadb:latest)
+- phpmyadmin
+
+Container names will be generated using the following mask: 
+
+<code>nginx - $ {PROJECT_NAME}</code>
 
 ### Runing 
 
@@ -13,17 +19,20 @@ Based on the following containers:
 
 <code>git@github.com:tt0y/docker-dev-environment.git</code>  
 
-
 3) create the config file 
 
 <code>cp .env.example .env</code>
 
-4) enter the required data in
+4) enter the required data in .env file
  
-5) run following command in the terminal: 
+5) run following command in the terminal:
 
-to start
+<code> docker-compose up --build "$@" </code>
+
+--- 
+
+to start use:
 <code>./docker/start</code>
 
-to stop
+to stop use:
 <code>./docker/kill</code>
