@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+source .env
+
+sudo docker-compose up -d --build
+
+#PHP_VERSION=$(php -v | tail -r | tail -n 1 | cut -d " " -f 2 | cut -c 1-3)
+echo "
+===================== 🚀 Done 🚀 ===================
+    Created by Anton Kuznetsov
+
+    Access your new links:
+
+    🌎 Web server:   http://www.$PROJECT_DOMEN
+    ⚙️  PHPMyAdmin:   http://www.$PROJECT_DOMEN:8080
+===================== 🚀 Done 🚀 ===================
+"
+
+sudo docker exec -it --user root php-$PROJECT_NAME bash

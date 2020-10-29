@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+source .env
+
+# Stop and remove project containers with volume (-v)
+sudo docker rm -v $(sudo docker stop $(sudo docker ps -a -q --filter name="$PROJECT_NAME"))
+
+# Delete network
+sudo docker network rm $(sudo docker network ls -q --filter name="docker-network")
+
+# Stop all containers
+#sudo docker stop $(sudo docker ps -a -q)
+
+# Delete all containers
+#sudo docker rm $(sudo docker ps -a -q)
+
+# Delete all volume
+#sudo docker volume rm $(sudo docker volume ls -qf dangling=true)
+
+# Delete all network
+#sudo docker network rm $(sudo docker network ls -q)
