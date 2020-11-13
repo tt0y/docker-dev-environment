@@ -28,7 +28,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     ssh \
     vim \
-    nano \
     mc \
 # git & unzip needed for composer
     unzip \
@@ -60,7 +59,7 @@ RUN docker-php-ext-install \
 RUN apt-get update && apt-get -y install cron
 
 # Set timezone
-ENV TZ Europe/Kiev
+ENV TZ Europe/Moscow
 RUN echo $TZ > /etc/timezone && \
     apt-get update && apt-get install -y tzdata && \
     rm /etc/localtime && \
@@ -82,6 +81,11 @@ EXPOSE $XDEBUG_EXPOSE_PORT
 
 # configure app folder
 WORKDIR /var/www/${PROJECT_DOMEN}/
+
+# install npm
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install
 
 # Install Composer
 RUN curl -s http://getcomposer.org/installer | php \
